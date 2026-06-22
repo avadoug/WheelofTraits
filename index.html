@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strain Spinner | Cannabis Trait Wheel Generator</title>
+    <meta
+      name="description"
+      content="Spin five animated trait wheels to generate a fictional cannabis strain profile for entertainment."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="hero section-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Fictional breeder lab simulator</p>
+          <h1>Strain Spinner</h1>
+          <p class="subtitle">Spin the traits. Build the legend.</p>
+          <p class="hero-text">
+            Fire all five trait wheels at once and let the pheno board decide a
+            fictional strain name, keeper score, breeder notes, and loose style
+            comparisons. Entertainment only, no real genetics or medical claims.
+          </p>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-ring ring-one"></div>
+          <div class="orbit-ring ring-two"></div>
+          <div class="hero-medallion">
+            <span>50/50</span>
+            <strong>Trait Wheel</strong>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="arena section-panel" aria-labelledby="arena-title">
+          <div class="section-heading">
+            <p class="eyebrow">Trait Wheel Arena</p>
+            <h2 id="arena-title">Spin the genetics</h2>
+            <div class="mode-control" role="group" aria-label="Description tone">
+              <button class="mode-button active" type="button" data-mode="serious">
+                Serious Breeder
+              </button>
+              <button class="mode-button" type="button" data-mode="goofy">
+                Goofy Goblin
+              </button>
+            </div>
+          </div>
+
+          <div class="wheel-grid" id="wheelGrid" aria-live="polite"></div>
+
+          <div class="spin-dock">
+            <button class="primary-action" id="spinButton" type="button">
+              <span class="button-shine"></span>
+              <span class="button-text">Create My Strain</span>
+            </button>
+            <p class="flavor-text" id="spinStatus">
+              May the keeper pheno choose you.
+            </p>
+          </div>
+        </section>
+
+        <section class="results-section" id="resultsSection" hidden>
+          <div class="results-grid">
+            <article class="result-card jar-card section-panel">
+              <div class="jar-glow" aria-hidden="true"></div>
+              <div class="result-topline">
+                <p class="eyebrow">Generated Strain</p>
+                <span class="badge" id="resultBadge">Fresh Roll</span>
+              </div>
+              <h2 id="strainName">Violet Funk Halo</h2>
+              <p class="strain-description" id="strainDescription"></p>
+
+              <div class="score-wrap" aria-label="Keeper potential score">
+                <div class="score-copy">
+                  <span>Keeper Potential</span>
+                  <strong id="keeperScore">0</strong>
+                </div>
+                <div class="score-meter">
+                  <span id="scoreFill"></span>
+                </div>
+              </div>
+
+              <div class="action-row">
+                <button class="secondary-action" id="spinAgainButton" type="button">
+                  Spin Again
+                </button>
+                <button class="secondary-action" id="copyButton" type="button">
+                  Copy Profile
+                </button>
+                <button class="secondary-action" id="shareButton" type="button">
+                  Share Result
+                </button>
+                <button class="secondary-action" id="downloadButton" type="button">
+                  Download Card
+                </button>
+              </div>
+            </article>
+
+            <aside class="trait-lineup section-panel" aria-labelledby="lineup-title">
+              <p class="eyebrow">Trait Lineup</p>
+              <h3 id="lineup-title">Final roll</h3>
+              <dl id="traitLineup"></dl>
+            </aside>
+          </div>
+
+          <div class="detail-grid">
+            <article class="detail-card">
+              <span class="detail-icon">01</span>
+              <h3>Likely Visual Appearance</h3>
+              <p id="visualProfile"></p>
+            </article>
+            <article class="detail-card">
+              <span class="detail-icon">02</span>
+              <h3>Likely Aroma Profile</h3>
+              <p id="aromaProfile"></p>
+            </article>
+            <article class="detail-card">
+              <span class="detail-icon">03</span>
+              <h3>Likely Effect Profile</h3>
+              <p id="effectProfile"></p>
+            </article>
+            <article class="detail-card">
+              <span class="detail-icon">04</span>
+              <h3>Grower/Breeder Notes</h3>
+              <p id="breederNotes"></p>
+            </article>
+          </div>
+
+          <article class="comparison-card section-panel">
+            <div>
+              <p class="eyebrow">Loose Style Comparisons</p>
+              <h3>Strains This Reminds Us Of</h3>
+            </div>
+            <p id="comparisonText"></p>
+          </article>
+        </section>
+
+        <section class="history-panel section-panel" aria-labelledby="history-title">
+          <div class="history-heading">
+            <div>
+              <p class="eyebrow">Local Lab Book</p>
+              <h2 id="history-title">Previous Creations</h2>
+            </div>
+            <button class="ghost-action" id="clearHistoryButton" type="button">
+              Clear
+            </button>
+          </div>
+          <div class="history-list" id="historyList">
+            <p class="empty-history">Your last 10 creations will appear here.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
